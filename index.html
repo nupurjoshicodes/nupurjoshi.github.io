@@ -3,128 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nupur Joshi - Product Manager</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Nupur Joshi - Product Leader</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #212529;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .summary {
+            background-color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .summary p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .experience {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+            width: calc(50% - 30px);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+        }
+        
+        .timeline-item:nth-child(odd):before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            border: 4px solid var(--primary);
+        }
+        
+        .timeline-item:nth-child(even):before {
+            content: '';
+            position: absolute;
+            right: -36px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            border: 4px solid var(--primary);
+        }
+        
+        .timeline-item .date {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-item .role {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-item .company {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .timeline-item ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        .timeline-item li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .timeline-item li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        .education {
+            background-color: white;
+            padding: 60px 0;
+        }
+        
+        .education-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .education-card {
+            background-color: var(--light);
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .education-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .education-card .degree {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .education-card .date {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .education-card p {
+            font-style: italic;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                margin-left: 60px !important;
+            }
+            
+            .timeline-item:nth-child(odd):before {
+                left: -35px;
+            }
+            
+            .timeline-item:nth-child(even):before {
+                left: -35px;
+                right: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>NUPUR JOSHI</h1>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> nnupurjoshii@gmail.com</p>
-                <p><i class="fas fa-phone"></i> (917) 214-3423</p>
-                <p><i class="fab fa-linkedin"></i> LinkedIn</p>
-                <a href="resume.pdf" class="download-btn" download="Nupur_Joshi_Resume.pdf">
-                    <i class="fas fa-download"></i> Download Resume
-                </a>
+            <div class="header-content">
+                <div class="profile-img">NJ</div>
+                <h1>NUPUR JOSHI</h1>
+                <p class="tagline">Product Leader • Growth Strategist • Tech Innovator</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                        </svg>
+                        <a href="mailto:nnupurjoshii@gmail.com">nnupurjoshii@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        <a href="tel:9172143423">(917) 214-3423</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
+                        <a href="https://linkedin.com/in/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
-
+    
     <section class="summary">
         <div class="container">
-            <h2>SUMMARY</h2>
-            <p>Returning to hands‑on product management after leading climate‑tech venture programs; Growth-focused product manager driving user acquisition, retention, and monetization through data-driven experiments and cross-functional collaboration with engineering, design, and marketing, resulting in 15M+ users and $200M+ ARR.</p>
+            <p>Returning to hands‑on product management after leading climate‑tech venture programs; growth-focused product manager driving user acquisition, retention, and monetization through data-driven experiments and cross-functional collaboration with engineering, design, and marketing, resulting in 15M+ users and $200M+ ARR.</p>
         </div>
     </section>
-
+    
     <section class="experience">
         <div class="container">
-            <h2>PROFESSIONAL EXPERIENCE</h2>
-            
-            <div class="job">
-                <h3>ADL VENTURES (Venture Development Firm)</h3>
-                <p class="location">New York, NY</p>
-                <div class="role">
-                    <h4>Venture Development Lead</h4>
-                    <p class="date">Jan 2025 - Present</p>
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">Jan 2025 - Present</div>
+                    <div class="role">Venture Development Lead</div>
+                    <div class="company">ADL Ventures</div>
+                    <ul>
+                        <li>Raised projected portfolio ROI 30% by validating three product lines through 40+ customer interviews, rapid prototypes, and ROI models; secured C-suite approval via roadmap workshops and demos.</li>
+                        <li>Instituted a discovery-to-delivery business process framework with sprint-level A/B checkpoints adopted by six product pods, increasing project-approval throughput 15%, cutting delivery timelines 20%, and improving on-time releases from 78% to 95%.</li>
+                    </ul>
                 </div>
-                <div class="role">
-                    <h4>Technical Program Manager – Senior Associate</h4>
-                    <p class="date">Jul 2023 – Dec 2024</p>
+                
+                <div class="timeline-item">
+                    <div class="date">Jul 2023 - Dec 2024</div>
+                    <div class="role">Technical Program Manager – Senior Associate</div>
+                    <div class="company">ADL Ventures</div>
+                    <ul>
+                        <li>Brokered five federal MOUs and led cross-functional delivery to unlock $12 M+ in co-funding and launch eight GAAP/FAR-compliant climate-tech pilots - featuring real-time energy-monitoring and predictive-maintenance APIs - with an 80 % pilot-to-production conversion rate.</li>
+                        <li>Instituted a discovery-to-delivery framework with sprint-level A/B checkpoints adopted by six product pods, increasing project-approval throughput 15 %, cutting delivery timelines 20 %, and improving on-time releases from 78 % to 95 %.</li>
+                        <li>Shipped a GPT-4 - powered assessment tool that auto-scores BOM/LCA documents, reducing EPEAT-certification effort 60 % and lead time from five to two days, while onboarding 10 solar OEMs and embedding finance-compliance controls.</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Raised projected portfolio ROI 30% by validating three product lines through 40+ customer interviews, rapid prototypes, and ROI models; secured C-suite approval via roadmap workshops and demos.</li>
-                    <li>Brokered five federal MOUs and led cross-functional delivery to unlock $12M+ in co-funding and launch eight GAAP/FAR-compliant climate-tech pilots.</li>
-                    <li>Instituted a discovery-to-delivery framework with sprint-level A/B checkpoints adopted by six product pods, increasing project-approval throughput 15%.</li>
-                    <li>Shipped a GPT-4-powered assessment tool that auto-scores BOM/LCA documents, reducing EPEAT-certification effort 60%.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <h3>PRODUCT NATION (ISPIRT)</h3>
-                <p class="location">India / USA</p>
-                <div class="role">
-                    <h4>Product Manager (Pro-Bono)</h4>
-                    <p class="date">Jul 2022 – Jun 2023</p>
+                
+                <div class="timeline-item">
+                    <div class="date">Jul 2022 - Jun 2023</div>
+                    <div class="role">Product Manager (Pro-Bono)</div>
+                    <div class="company">Product Nation (iSPIRT)</div>
+                    <ul>
+                        <li>Designed the product roadmap for a rural lending platform serving 80M women, leveraging market research and user needs analysis; achieved significant pricing improvements (interest rates reduced from 60% to 7%) and accelerated user adoption.</li>
+                        <li>Pioneered a microloan product strategy targeting women-owned micro, small, and medium enterprises (MSMEs), expanding formal credit access to 50M+ MSMEs via industry stakeholder partnerships.</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Designed the product roadmap for a rural lending platform serving 80M women, leveraging market research and user needs analysis.</li>
-                    <li>Pioneered a microloan product strategy targeting women-owned micro, small, and medium enterprises (MSMEs).</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <h3>CAP FLOAT FINANCIAL SERVICES PRIVATE LIMITED (Amazon Company)</h3>
-                <p class="location">Bangalore, INDIA</p>
-                <div class="role">
-                    <h4>Senior Product Manager</h4>
-                    <p class="date">Sept 2019 – Sept 2021</p>
+                
+                <div class="timeline-item">
+                    <div class="date">Sept 2019 - Sept 2021</div>
+                    <div class="role">Senior Product Manager</div>
+                    <div class="company">Cap Float Financial Services (Amazon Company)</div>
+                    <ul>
+                        <li>Scaled Amazon Pay Later to 15 M+ users and $200 M+ ARR by directing a 12-member cross functional team to embed one-click credit and sub-second KYC, completing full rollout within 9 months.</li>
+                        <li>Grew Pay Later to 20 % of company revenue and 200 % YoY by rolling out personalized limits, zero-interest promos, and adaptive pricing while owning pricing, FP&A, provisioning, invoicing, and accounting workflows.</li>
+                        <li>Doubled BNPL transactions and saved 20 ops-hours/week by releasing a partner-API toolkit adopted by 1 500+ marketplaces (e.g., MakeMyTrip, Razorpay) that embeds BNPL at checkout with auto-provisioning.</li>
+                        <li>Increased BNPL attach rate at checkout 8%→14% through weekly A/B tests on offer placement, messaging, and incentives.</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Scaled Amazon Pay Later to 15M+ users and $200M+ ARR by directing a 12-member cross functional team.</li>
-                    <li>Grew Pay Later to 20% of company revenue and 200% YoY by rolling out personalized limits and zero-interest promos.</li>
-                    <li>Doubled BNPL transactions and saved 20 ops-hours/week by releasing a partner-API toolkit.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <h3>ZERODHA BROKING LIMITED</h3>
-                <p class="location">Bangalore, INDIA</p>
-                <div class="role">
-                    <h4>Business Analyst</h4>
-                    <p class="date">May 2017 – Aug 2018</p>
+                
+                <div class="timeline-item">
+                    <div class="date">Sept 2018 - Aug 2019</div>
+                    <div class="role">Decision Scientist</div>
+                    <div class="company">Cap Float Financial Services (Amazon Company)</div>
+                    <ul>
+                        <li>Cut predicted defaults 35 % by building geospatial- & digital-footprint credit models with risk and data teams, enabling 0 % financing for gig-economy borrowers.</li>
+                        <li>Lowered delinquency 4 % → 1.2 %, preventing $20 M+ annual losses, through real-time fraud detection with adaptive feature flags across the lending portfolio.</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Spearheaded UX improvements to stock portfolio analytics platform using new data APIs.</li>
-                    <li>Leveraged behavioral insights from 600K+ users to spearhead development of the 'Kill Switch' trading lockout feature.</li>
-                    <li>Reduced high-risk trades 40% across 2M+ daily orders by embedding ML-driven pre-trade "nudge" alerts.</li>
-                </ul>
+                
+                <div class="timeline-item">
+                    <div class="date">May 2017 - Aug 2018</div>
+                    <div class="role">Business Analyst</div>
+                    <div class="company">Zerodha Broking Limited</div>
+                    <ul>
+                        <li>Spearheaded UX improvements to stock portfolio analytics platform using new data APIs; this resulted in a 30% increase in user engagement and raised user satisfaction scores to 92%.</li>
+                        <li>Leveraged behavioral insights from 600K+ users to spearhead development of the 'Kill Switch' trading lockout feature, resulting in adoption by 150k+ users for enhanced risk management.</li>
+                        <li>Reduced high-risk trades 40 % across 2M+ daily orders by embedding ML-driven pre-trade "nudge" alerts tuned to volatility and leverage signals.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
-
+    
     <section class="education">
         <div class="container">
-            <h2>EDUCATION</h2>
-            <div class="school">
-                <h3>COLUMBIA UNIVERSITY</h3>
-                <p class="location">New York, NY, USA</p>
-                <p>Masters in Statistics and Financial Engineering</p>
-                <p class="date">Sep 2021 – Feb 2023</p>
-                <ul>
-                    <li>CFA Level 3 candidate</li>
-                </ul>
-            </div>
-            <div class="school">
-                <h3>NIRMA UNIVERSITY</h3>
-                <p class="location">Ahmedabad, GJ, IN</p>
-                <p>Bachelor of Technology in Electronics and Computer Engineering, Minor in Finance</p>
-                <p class="date">Aug 2013 – May 2017</p>
-                <ul>
-                    <li>Founded and led a 200-member Nirma Entrepreneurship Club, securing $50K to establish a student venture lab.</li>
-                </ul>
+            <h2 class="section-title">Education</h2>
+            <div class="education-cards">
+                <div class="education-card">
+                    <h3>COLUMBIA UNIVERSITY</h3>
+                    <div class="degree">Masters in Statistics and Financial Engineering</div>
+                    <div class="date">Sep 2021 - Feb 2023</div>
+                    <p>CFA Level 3 candidate</p>
+                </div>
+                
+                <div class="education-card">
+                    <h3>NIRMA UNIVERSITY</h3>
+                    <div class="degree">Bachelor of Technology in Electronics and Computer Engineering, Minor in Finance</div>
+                    <div class="date">Aug 2013 - May 2017</div>
+                    <p>Founded and led a 200-member Nirma Entrepreneurship Club, securing $50K to establish a student venture lab.</p>
+                </div>
             </div>
         </div>
     </section>
-
+    
     <footer>
         <div class="container">
-            <p>&copy; 2024 Nupur Joshi. All rights reserved.</p>
+            <p>&copy; 2025 Nupur Joshi. All rights reserved.</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
-</html> 
+</html>
